@@ -35,6 +35,22 @@ setup_gitconfig () {
   fi
 }
 
+setup_osx () {
+  if ! [ -f osx/install.sh ]
+  then
+    info 'setup osx'
+
+    user ' - What is your computer unicode name?'
+    read -e name_unicode
+    user ' - What is your computer ASCII name?'
+    read -e name_ascii
+    
+    sed -e "s/UNICODE_NAME/$name_unicode/g" -e "s/ASCII_NAME/$name_ascii/g" osx/install.sh.template > osx/install.sh
+
+    success 'os x'
+  fi
+}
+
 link_files () {
   ln -s $1 $2
   success "linked $1 to $2"
@@ -108,6 +124,7 @@ install_dotfiles () {
 }
 
 setup_gitconfig
+setup_osx
 install_dotfiles
 
 # If we are on a mac, lets install and setup homebrew

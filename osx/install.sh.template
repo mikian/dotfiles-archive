@@ -1,0 +1,7 @@
+#!/bin/sh
+
+# Set computer name (as done via System Preferences → Sharing)
+sudo scutil --set ComputerName "UNICODE_NAME"
+sudo scutil --set HostName "ASCII_NAME"
+sudo scutil --set LocalHostName "UNICODE_NAME"
+sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "ASCII_NAME"
