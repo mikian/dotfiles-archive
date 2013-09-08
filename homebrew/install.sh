@@ -5,6 +5,22 @@
 # This installs some of the common dependencies needed (or at least desired)
 # using Homebrew.
 
+# Improve homebrew with taps
+taps=( phinze/cask )
+
+# Install following brews
+brews=(
+ack appledoc exiftool git git-flow graphicsmagick hub mogenerator mongodb mysql node qt rbenv rbenv-default-gems rbenv-gem-rehash rbenv-use
+rbenv-whatis redis ruby-build sloccount ssh-copy-id zeromq
+brew-cask
+)
+
+# Install apps from cask tap
+apps=(
+anvil arq cloudapp firefox # gfxcardstatus
+google-chrome hip-chat i-explorer kaleidoscope lion-disk-maker reveal spark-inspector testflight transmit versions vmware-fusion
+)
+
 # Check for Homebrew
 if test ! $(which brew)
 then
@@ -14,62 +30,30 @@ then
 fi
 
 # Install taps
-taps = ( phinze/homebrew-cask )
-
-installed = `brew tap`
+installed_taps=`brew tap`
 for tap in ${taps[@]:0}
 do
-  if [[ "$installed" =~ "$tap" ]]
+  if [[ ! "$installed_taps" =~ "$tap" ]]
   then
-    echo "$tap: already tapped."
-  else
-    brew install $tap
+    brew tap $tap
   fi
 done
 
 # Install homebrew packages
-brews=(
-ack appledoc exiftool git git-flow graphicsmagick hub mogenerator mongodb mysql node qt rbenv rbenv-default-gems rbenv-gem-rehash rbenv-use
-rbenv-whatis redis ruby-build sloccount ssh-copy-id zeromq
-brew-cask
-)
-installed=`brew list`
+installed_brews=`brew list`
 for brew in ${brews[@]:0}
 do
-  if [[ "$installed" =~ "$brew" ]]
+  if [[ ! "$installed_brews" =~ "$brew" ]]
   then
-    echo "$brew: alreadt brewed."
-  else
     brew install $brew
   fi
 done
 
-apps=(
-anvil
-arq
-cloudapp
-firefox
-# gfxcardstatus
-google-chrome
-hip-chat
-i-explorer
-kaleidoscope
-lion-disk-maker
-reveal
-spark-inspector
-testflight
-transmit
-versions
-vmware-fusion
-)
-
-installed=`brew cask list`
+installed_apps=`brew cask list`
 for app in ${apps[@]:0}
 do
-  if [[ "$installed" =~ "$app" ]]
+  if [[ ! "$installed_apps" =~ "$app" ]]
   then
-    echo "$app: already installed"
-  else
     brew cask install $app
   fi
 done
