@@ -1,2 +1,4 @@
 /git/gitconfig.symlink
 /osx/install.sh
+/ssh/ssh.symlink/keys/*
+/ssh/ssh.symlink/master/*
