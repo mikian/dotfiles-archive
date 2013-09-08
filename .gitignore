@@ -2,3 +2,5 @@
 /osx/install.sh
 /ssh/ssh.symlink/keys/*
 /ssh/ssh.symlink/master/*
+
+/ssh/ssh.symlink/known_hosts
