@@ -16,7 +16,7 @@ rbenv rbenv-default-gems rbenv-gem-rehash rbenv-use rbenv-whatis redis ruby-buil
 
 # Install apps from cask tap
 apps=(
-anvil arq cloudapp firefox # gfxcardstatus
+anvil arq cloudapp coconutbattery firefox # gfxcardstatus
 google-chrome hip-chat i-explorer kaleidoscope lion-disk-maker reveal skype spark-inspector testflight textmate transmit
 #uncrustifyx
 versions vmware-fusion
