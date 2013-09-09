@@ -10,15 +10,15 @@ taps=( phinze/cask )
 
 # Install following brews
 brews=(
-ack appledoc exiftool git git-flow graphicsmagick hub mogenerator mongodb mysql node qt rbenv rbenv-default-gems rbenv-gem-rehash rbenv-use
-rbenv-whatis redis ruby-build sloccount ssh-copy-id zeromq
-brew-cask
+ack appledoc brew-cask exiftool git git-flow graphicsmagick hub mogenerator mongodb mobile-shell mysql node qt
+rbenv rbenv-default-gems rbenv-gem-rehash rbenv-use rbenv-whatis redis ruby-build sloccount ssh-copy-id zeromq
 )
 
 # Install apps from cask tap
 apps=(
 anvil arq cloudapp firefox # gfxcardstatus
-google-chrome hip-chat i-explorer kaleidoscope lion-disk-maker reveal skype spark-inspector testflight textmate transmit uncrustifyx
+google-chrome hip-chat i-explorer kaleidoscope lion-disk-maker reveal skype spark-inspector testflight textmate transmit
+#uncrustifyx
 versions vmware-fusion
 )
 
