@@ -18,7 +18,8 @@ brew-cask
 # Install apps from cask tap
 apps=(
 anvil arq cloudapp firefox # gfxcardstatus
-google-chrome hip-chat i-explorer kaleidoscope lion-disk-maker reveal spark-inspector testflight transmit versions vmware-fusion
+google-chrome hip-chat i-explorer kaleidoscope lion-disk-maker reveal spark-inspector testflight textmate transmit uncrustifyx versions
+vmware-fusion
 )
 
 # Check for Homebrew
