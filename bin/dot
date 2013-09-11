@@ -5,11 +5,20 @@
 # `dot` handles installation, updates, things like that. Run it periodically
 # to make sure you're on the latest and greatest.
 
+info ()    { printf "  [ \033[00;34m..\033[0m ] $1\n"; }
+
+info "Setting OS X defaults..."
 # Set OS X defaults
 $ZSH/osx/set-defaults.sh
 
+info "Updating homebrew..."
 # Upgrade homebrew
 brew update
 
+info "Upgrading homebrew installations..."
+# Upgrade all installed
+brew upgrade
+
+info "Install missing homebrew apps..."
 # Install homebrew packages
 $ZSH/homebrew/install.sh 2>&1
