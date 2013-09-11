@@ -1,0 +1,10 @@
+# Improve homebrew with taps
+taps=( phinze/cask )
+
+# Install following brews
+brews=(
+)
+
+# Install apps from cask tap
+apps=(
+)
