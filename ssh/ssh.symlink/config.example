@@ -1,0 +1,7 @@
+# Enable compression
+Compression yes
+CompressionLevel 1
+
+# General
+HashKnownHosts  yes
+IdentityFile    ~/.ssh/keys/id_rsa
