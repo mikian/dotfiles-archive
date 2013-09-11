@@ -3,7 +3,12 @@
 success () { printf "\r\033[2K  \033[00;32msuccess\033[0m $1\n"; }
 fail ()    { printf "\r\033[2K  \033[0;31mfailure\033[0m $1\n"; echo ''; exit; }
 
-keyname="$1"
+if [ -z "$1" ]
+then
+  keyname="id_rsa"
+else
+  keyname="$1"
+fi
 keyfile="${HOME}/.ssh/keys/${keyname}.pub"
 
 # Find our public key
