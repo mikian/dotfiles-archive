@@ -1,0 +1,43 @@
+#!/usr/bin/env ruby
+
+require 'thor'
+
+class Dotfiles < Thor
+  include Thor::Actions
+  
+  desc "update", "Update from internal dotfiles"
+  def update
+    ensure_public
+    
+    # Copy all files from internal dotfiles to public
+    internal_df = File.expand_path(File.join(ENV['HOME'], '.dotfiles'))
+    public_df   = File.expand_path("..", __FILE__)
+
+    source_paths << internal_df
+    
+    directory internal_df, public_df, force: true, recursive: true, exclude_pattern: /\.git/#,mode: :preserve
+  end
+
+  desc "prepare", "Prepare for open-source release"
+  def prepare
+    update
+    
+    Dir["**/*.example"].each do |ex|
+      file = ex.gsub(/\.example$/, '')
+      if File.exists?(file)
+        remove_file file
+      end
+    end
+  end
+  
+  no_commands do
+    def ensure_public
+      if Dir.pwd[/\.dotfiles/]
+        say_status :error, "Please run commands only in public github repository", :red
+        exit 1
+      end
+    end
+  end
+end
+
+Dotfiles.start
