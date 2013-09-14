@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 #
 # dot
 #
@@ -11,14 +11,24 @@ info "Setting OS X defaults..."
 # Set OS X defaults
 $ZSH/osx/set-defaults.sh
 
-info "Updating homebrew..."
-# Upgrade homebrew
-brew update
+if [ -x "$ZSH/users/$USER.sh" ]
+then
+  info "Running user specific settings for ${USER}..."
+  $ZSH/users/$USER.sh
+fi
 
-info "Upgrading homebrew installations..."
-# Upgrade all installed
-brew upgrade
+if test $(which brew)
+then
+  info "Updating homebrew..."
+  # Upgrade homebrew
+  brew update
+  
+  info "Upgrading homebrew installations..."
+  # Upgrade all installed
+  brew upgrade
+fi
 
-info "Install missing homebrew apps..."
-# Install homebrew packages
-$ZSH/homebrew/install.sh 2>&1
+find $ZSH -name dot.sh | while read installer ; do sh -c "${installer}" ; done
+# info "Install missing homebrew apps..."
+# # Install homebrew packages
+# $ZSH/homebrew/install.sh 2>&1
