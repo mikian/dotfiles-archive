@@ -20,13 +20,14 @@ class Dotfiles < Thor
 
   desc "prepare", "Prepare for open-source release"
   def prepare
-    update
-    
     Dir["**/*.example"].each do |ex|
       file = ex.gsub(/\.example$/, '')
       if File.exists?(file)
         remove_file file
       end
+    end
+    Dir["users/*"].each do |usr|
+      remove_file usr
     end
   end
   
