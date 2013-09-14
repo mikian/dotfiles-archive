@@ -3,6 +3,9 @@
 # bootstrap installs things.
 
 DOTFILES_ROOT="`pwd`"
+ZSH="$DOTFILES_ROOT"
+
+export DOTFILES_ROOT ZSH
 
 set -e
 
@@ -46,6 +49,7 @@ setup_osx () {
     read -e name_ascii
     
     sed -e "s/UNICODE_NAME/$name_unicode/g" -e "s/ASCII_NAME/$name_ascii/g" osx/install.sh.template > osx/install.sh
+    chmod 0755 osx/install.sh
 
     success 'os x'
   fi
@@ -127,16 +131,21 @@ setup_gitconfig
 setup_osx
 install_dotfiles
 
+# Install system
+$DOTFILES_ROOT/script/install
+
 # If we are on a mac, lets install and setup homebrew
 if [ "$(uname -s)" == "Darwin" ]
 then
-  info "installing dependencies"
-  if . bin/dot > /tmp/dotfiles-dot 2>&1
-  then
-    success "dependencies installed"
-  else
-    fail "error installing dependencies"
-  fi
+  info "\n"
+  info 'Please start your terminal to apply new settings and then run `dot` command'
+  info ''
+#  if . bin/dot
+#  then
+#    success "dependencies installed"
+#  else
+#    fail "error installing dependencies"
+#  fi
 fi
 
 echo ''

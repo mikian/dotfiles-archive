@@ -36,7 +36,7 @@ defaults write com.apple.NetworkBrowser BrowseAllInterfaces 1
 # Set up Safari for development.
 # defaults write com.apple.Safari IncludeInternalDebugMenu -bool true
 # defaults write com.apple.Safari IncludeDevelopMenu -bool true
-defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
+# defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
 # defaults write com.apple.Safari "com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled" -bool true
 # defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
 
@@ -52,6 +52,3 @@ defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1
 
 # Hide indicator lights for open applications in the Dock
 defaults write com.apple.dock show-process-indicators -bool false
-
-# Set up Reset shortucut for iOS Simulator (CMD+SHIFT+R)
-defaults write com.apple.iphonesimulator NSUserKeyEquivalents -dict-add "Reset Content and Settings..." "@$r"
