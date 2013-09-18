@@ -10,7 +10,7 @@ some local changes and addittions.
 Run this:
 
 ```sh
-git clone https://github.com/mikian/dotfiles.git ~/.dotfiles
+git clone https://mikian@bitbucket.org/mikian/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 script/bootstrap
 ```

@@ -9,12 +9,12 @@ info ()    { printf "  [ \033[00;34m..\033[0m ] $1\n"; }
 
 info "Setting OS X defaults..."
 # Set OS X defaults
-$ZSH/osx/set-defaults.sh
+$DOTFILES_ROOT/osx/set-defaults.sh
 
-if [ -x "$ZSH/users/$USER.sh" ]
+if [ -x "$DOTFILES_ROOT/users/$USER.sh" ]
 then
   info "Running user specific settings for ${USER}..."
-  $ZSH/users/$USER.sh
+  $DOTFILES_ROOT/users/$USER.sh
 fi
 
 if test $(which brew)
@@ -28,7 +28,7 @@ then
   brew upgrade
 fi
 
-find $ZSH -name dot.sh | while read installer ; do sh -c "${installer}" ; done
+find $DOTFILES_ROOT -name dot.sh | while read installer ; do sh -c "${installer}" ; done
 # info "Install missing homebrew apps..."
 # # Install homebrew packages
-# $ZSH/homebrew/install.sh 2>&1
+# $DOTFILES_ROOT/homebrew/install.sh 2>&1
