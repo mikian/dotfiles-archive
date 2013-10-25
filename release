@@ -15,7 +15,9 @@ class Dotfiles < Thor
 
     source_paths << internal_df
     
-    directory internal_df, public_df, force: true, recursive: true, exclude_pattern: /\.git/#,mode: :preserve
+    # Update release always first
+    copy_file File.join(internal_df, 'release')
+    directory internal_df, public_df, force: true, recursive: true, exclude_pattern: /\.git|gpg-agent|ssh\.symlink\/master\//
   end
 
   desc "prepare", "Prepare for open-source release"
