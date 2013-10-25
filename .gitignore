@@ -4,3 +4,8 @@
 /ssh/ssh.symlink/master/*
 
 /ssh/ssh.symlink/known_hosts
+/mitmproxy/
+
+/gnupg/
+
+/ec2/
